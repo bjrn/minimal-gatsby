@@ -17,10 +17,10 @@ class BlogPost extends React.Component {
 
 export default BlogPost
 
-// Below works
-// markdownRemark(fields: { slug: { eq: "en-nyhet" } }) {
+// you need a `query` inside the graphql thingy to declare the param(s)
+// ie. query BlogPostQuery($slug: String!) { 
 export const query = graphql`
-  {
+  query BlogPostQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       frontmatter {
